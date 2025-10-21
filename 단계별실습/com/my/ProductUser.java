@@ -2,6 +2,7 @@ package com.my;
 
 import com.my.dao.ProductDAO;
 import com.my.dao.ProductDAOArray;
+import com.my.dao.ProductDAOFile;
 import com.my.dao.ProductDAOList;
 import com.my.exception.AddException;
 import com.my.exception.FindException;
@@ -16,7 +17,8 @@ public class ProductUser {
     static private Scanner sc = new Scanner(System.in);;
     public ProductUser(){
 //        dao = new ProductDAOArray(5);
-        dao = new ProductDAOList(5);
+//        dao = new ProductDAOList(5);
+        dao = new ProductDAOFile("src/com/my/product.txt") ;
     }
 
     public void add(){
@@ -65,6 +67,10 @@ public class ProductUser {
         }
     }
 
+    public static void terminate(){
+        System.out.println("작업을 종료합니다");
+    }
+
     public static void main(String[] args) {
         ProductUser user = new ProductUser();
         String opt;
@@ -83,7 +89,7 @@ public class ProductUser {
                     user.remove();
                     break;
                 case "9":
-                    System.out.println("작업을 종료합니다");
+                    user.terminate() ;
             }
         }while(!opt.equals("9"));
     }

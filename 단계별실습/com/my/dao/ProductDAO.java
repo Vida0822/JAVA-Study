@@ -57,4 +57,6 @@ public interface ProductDAO {
      * @throws RemoveException
      */
     public int delete(String prodNo) throws RemoveException;
+
+    public void terminate() ;
 }

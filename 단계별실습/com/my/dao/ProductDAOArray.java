@@ -68,6 +68,11 @@ public class ProductDAOArray implements ProductDAO{
         System.out.println("삭제할 상품이 없습니다.");
         return 0 ;
     }
+
+    @Override
+    public void terminate() {
+
+    }
 }
 
 /**

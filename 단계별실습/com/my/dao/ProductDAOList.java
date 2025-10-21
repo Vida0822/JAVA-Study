@@ -87,4 +87,9 @@ public class ProductDAOList implements ProductDAO{
         }
         return deleteCnt;
     }
+
+    @Override
+    public void terminate() {
+
+    }
 }

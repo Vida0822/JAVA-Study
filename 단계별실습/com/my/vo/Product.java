@@ -83,13 +83,18 @@ public class Product implements Serializable { // extends Object
         return Objects.hashCode(prodNo);
     }
 
-
     @Override
     public String toString() {
         return "상품번호: "+prodNo+", "
                 +"상품명: "+prodName+", "
                 +"가격: "+prodPrice ;
     }
+//
+//    @Override
+//    public String toString() {
+//        return prodNo+":"+prodName+":"+prodPrice ;
+//    }
+
 
     // Serializable : 구현할 메서드 없음
 }
