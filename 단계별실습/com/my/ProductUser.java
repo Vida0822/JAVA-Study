@@ -4,6 +4,8 @@ import com.my.dao.ProductDAO;
 import com.my.dao.ProductDAOArray;
 import com.my.dao.ProductDAOList;
 import com.my.exception.AddException;
+import com.my.exception.FindException;
+import com.my.exception.RemoveException;
 import com.my.vo.Product;
 
 import java.util.List;
@@ -31,8 +33,6 @@ public class ProductUser {
         }catch (AddException e){
             System.out.println(e.getMessage());
         }
-
-
     }
 
     public void findAll(){
@@ -41,9 +41,14 @@ public class ProductUser {
 //        for(Product p: all) {
 //            System.out.println(p);
 //        }
-        List<Product> all = dao.selectAllList() ;
-        for(Product p : all){
-            System.out.println(p);
+        List<Product> all = null;
+        try {
+            all = dao.selectAllList();
+            for(Product p : all){
+                System.out.println(p);
+            }
+        } catch (FindException e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -51,8 +56,13 @@ public class ProductUser {
         System.out.println(">>상품삭제작업<<");
         System.out.print("상품번호:");
         String prodNo = sc.nextLine();
-        int deleteCnt = dao.delete(prodNo);
-        System.out.println("삭제된 상품 수:"+deleteCnt);
+        int deleteCnt = 0;
+        try {
+            deleteCnt = dao.delete(prodNo);
+            System.out.println("삭제된 상품 수:"+deleteCnt);
+        } catch (RemoveException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void main(String[] args) {
