@@ -18,7 +18,7 @@ public class ProductUser {
     public ProductUser(){
 //        dao = new ProductDAOArray(5);
 //        dao = new ProductDAOList(5);
-        dao = new ProductDAOFile("src/com/my/product.txt") ;
+        dao = new ProductDAOFile() ;
     }
 
     public void add(){
